@@ -1,0 +1,10 @@
+package blackjack;
+
+public class CardDeck {
+
+
+	public Card getCard() {
+		return null;
+	}
+
+}

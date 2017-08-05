@@ -1,0 +1,12 @@
+package blackjack;
+
+import java.util.List;
+
+public class CardDeck {
+
+
+	public Card getCard() {
+		return null;
+	}
+
+}

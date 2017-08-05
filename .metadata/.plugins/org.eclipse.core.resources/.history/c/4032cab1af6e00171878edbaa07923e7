@@ -1,0 +1,11 @@
+package blackjack;
+
+public class Rule {
+
+	public int getScore(List<Card> cards) {
+
+	}
+
+
+
+}
