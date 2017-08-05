@@ -1,0 +1,26 @@
+package blackjack;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Gamer {
+
+	private List<Card> cards;
+
+	public Gamer() {
+
+		cards = new LinkedList<>();
+	}
+
+	// 振る舞い（method）
+	public void receiveCard() {
+
+	}
+
+	// 振る舞い（method）
+	public List<Card> openCard() {
+		return null;
+	}
+
+}

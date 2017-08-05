@@ -25,8 +25,9 @@ public class CardDeck {
 		List<Card> cards = new LinkedList<>();
 		for(String pattern : PATTERNS) {
 			for(int i = 1; i<=CARD_COUNT; i++) {
-				String denomination = this.numberToDenomination(i);
-				Card card = new Card(pattern, denomination);
+//				String denomination = this.numberToDenomination(i);
+//				int point = this.nunmerToPoint(i);
+				Card card = new Card(pattern, i);
 				cards.add(card);
 			}
 
@@ -36,19 +37,46 @@ public class CardDeck {
 		return cards;
 	}
 
-	public String numberToDenomination(int number) {
+//	private int nunmerToPoint(int number) {
+//
+//		if(number >= 11) {
+//
+//			return 10;
+//		}
+//
+//		return number;
+//
+//	}
 
-		if(number == 1) {
-			return "A";
-		} else if(number == 11) {
-			return "J";
-		} else if(number == 12) {
-			return "Q";
-		} else if(number == 12) {
-			return "K";
-		} else {
-			return String.valueOf(number);
-		}
+//	public String numberToDenomination(int number) {
+//
+//		if(number == 1) {
+//			return "A";
+//		} else if(number == 11) {
+//			return "J";
+//		} else if(number == 12) {
+//			return "Q";
+//		} else if(number == 13) {
+//			return "K";
+//		} else {
+//			return String.valueOf(number);
+//		}
+//
+//	}
+
+	public Card draw() {
+
+		Card selectedCard = getRandomCard();
+		cards.remove(selectedCard);
+
+		return selectedCard;
+	}
+
+	private Card getRandomCard() {
+
+		int size = cards.size();
+		int select = (int)(Math.random()*size);
+		return cards.get(select);
 
 	}
 
@@ -61,7 +89,7 @@ public class CardDeck {
 
 		for (Card card : cards) {
 			sb.append(card.toString());
-			sb.append("¥n");
+			sb.append("\n");
 
 		}
 		return sb.toString();

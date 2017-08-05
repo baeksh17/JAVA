@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Game {
 
+	private static final int INIT_RECEIVE_CARD_COUNT = 2;
+
 	public void play() {
 		System.out.println("★BlackJack Start★");
-
 		Scanner sc = new Scanner(System.in);
 
 		Dealer dealer = new Dealer();
@@ -14,6 +15,42 @@ public class Game {
 		Rule rule = new Rule();
 
 		CardDeck cardDeck = new CardDeck();
+		Card card = cardDeck.draw();
+
+		initPhase(cardDeck, gamer);
+		playingCheck(sc, cardDeck, gamer);
+
+	}
+
+	private void playingCheck(Scanner sc, CardDeck cardDeck, Gamer gamer) {
+
+		String gamerInput;
+
+		while(true) {
+
+			System.out.println("カードをDrawしますか。終了は０です");
+			gamerInput = sc.nextLine();
+
+			if("0".equals(gamerInput)) {
+				break;
+			}
+
+			Card card = cardDeck.draw();
+			gamer.receiveCard(card);
+		}
+
+	}
+
+	private void initPhase(CardDeck cardDeck, Gamer gamer) {
+
+		System.out.println("最初は２枚のカードをDRAWします。");
+		for(int i = 0; i < INIT_RECEIVE_CARD_COUNT; i++) {
+
+			Card card = cardDeck.draw();
+			gamer.receiveCard(card);
+
+		}
+
 	}
 
 }

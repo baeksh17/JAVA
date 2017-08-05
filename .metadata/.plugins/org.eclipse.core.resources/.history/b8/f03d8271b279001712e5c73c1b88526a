@@ -1,0 +1,41 @@
+package blackjack;
+
+import java.util.Scanner;
+
+public class Game {
+
+	public void play() {
+		System.out.println("★BlackJack Start★");
+		Scanner sc = new Scanner(System.in);
+
+		Dealer dealer = new Dealer();
+		Gamer gamer = new Gamer();
+		Rule rule = new Rule();
+
+		CardDeck cardDeck = new CardDeck();
+		Card card = cardDeck.draw();
+
+		playingCheck(sc, cardDeck, gamer);
+
+	}
+
+	private void playingCheck(Scanner sc, CardDeck cardDeck, Gamer gamer) {
+
+		String gamerInput;
+
+		while(true) {
+
+			System.out.println("カードをDrawしますか。終了は０です");
+			gamerInput = sc.nextLine();
+
+			if("0".equals(gamerInput)) {
+				break;
+			}
+
+			Card card = cardDeck.draw();
+			gamer.receiveCard(card);
+		}
+
+	}
+
+}
