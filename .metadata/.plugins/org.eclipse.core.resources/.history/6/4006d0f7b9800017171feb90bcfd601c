@@ -1,0 +1,23 @@
+package blackjack;
+
+import java.util.List;
+
+public class Rule {
+
+
+	public int getScore(List<Card> cards) {
+		return 0;
+	}
+
+	public void getWinner(List<Player> players) {
+
+		Player highestPlayer = null;
+		int highestPoint = 0;
+
+		for (Player player : players)
+
+	}
+
+
+
+}

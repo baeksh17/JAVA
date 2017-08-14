@@ -1,0 +1,11 @@
+package blackjack;
+
+public interface Player {
+
+	void receiveCard(Card card);
+
+	void showCard();
+
+	List<Card> openCards();
+
+}

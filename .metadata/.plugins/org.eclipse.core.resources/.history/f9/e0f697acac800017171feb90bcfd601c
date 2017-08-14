@@ -1,0 +1,59 @@
+package blackjack;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class Dealer {
+
+	private List<Card> cards;
+	private static final int CAN_RECEIVE_POINT = 16;
+
+	public Dealer() {
+
+		cards = new LinkedList<>();
+	}
+
+	public void receiveCard(Card card) {
+
+		if(this.isReceiveCard()) {
+
+			this.cards.add(card);
+			this.showCards();
+
+		} else {
+
+			System.out.println("カードの総合計が１７以上です。それ以上カードを受け入れでいません。");
+
+		}
+
+	}
+
+	public void showCards() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("現在のカードの一覧\n");
+		for(Card card : cards) {
+			sb.append(card.toString());
+			sb.append("\n"); } System.out.println(sb.toString());
+		}
+
+
+
+	public List<Card> openCard() {
+		return this.cards;
+	}
+
+	private boolean isReceiveCard() {
+
+		return getPointSum() <= CAN_RECEIVE_POINT;
+	}
+
+	private int getPointSum() {
+		int sum = 0;
+		for(Card card : cards) {
+
+			sum += card.getPoint();
+		}
+		return sum;
+	}
+
+}

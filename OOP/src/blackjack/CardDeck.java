@@ -23,6 +23,7 @@ public class CardDeck {
 	private List<Card> generateCards() {
 
 		List<Card> cards = new LinkedList<>();
+
 		for(String pattern : PATTERNS) {
 			for(int i = 1; i<=CARD_COUNT; i++) {
 //				String denomination = this.numberToDenomination(i);

@@ -3,13 +3,20 @@ package blackjack;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Gamer {
+public class Gamer implements Player {
 
 	private List<Card> cards;
+	private boolean turn;
+	private String name;
 
 	public Gamer() {
 
 		cards = new LinkedList<>();
+	}
+
+	public Gamer(String name) {
+		this.cards = new LinkedList<>();
+		this.name = name;
 	}
 
 	// 振る舞い（method）
@@ -35,9 +42,35 @@ public class Gamer {
 		System.out.println(sb.toString());
 	}
 
-	// 振る舞い（method）
-	public List<Card> openCard() {
+	@Override
+	public List<Card> openCards() {
+		// TODO 自動生成されたメソッド・スタブ
 		return this.cards;
 	}
+
+	@Override
+	public void turnOff() {
+		this.setTurn(false);
+	}
+
+	@Override
+	public void turnOn() {
+		this.setTurn(true);
+	}
+
+	@Override
+	public boolean isTurn() {
+		return this.turn;
+	}
+
+	@Override
+	public String getName() {
+		return this.name;
+	}
+
+	private void setTurn(boolean turn) {
+		this.turn = turn;
+	}
+
 
 }
